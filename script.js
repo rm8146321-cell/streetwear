@@ -9,7 +9,7 @@ const products = [
     name: "Sepatu Sneakers",
     price: 450000,
     category: "sepatu",
-    image: "/sneakers.jpg",
+    image: "./img/sneakers.jpg",
     desc: "Sneakers kasual bergaya klasik dengan insole Ortholite yang empuk.",
   },
   {
