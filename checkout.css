@@ -1,0 +1,220 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  background: #f5f6fa;
+  color: #2f3640;
+  padding: 20px 5%;
+}
+
+.checkout-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.checkout-header a {
+  color: #ff4757;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* Tata Letak Utama dengan Grid */
+.checkout-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr; /* Kolom kiri lebih besar dari kolom kanan */
+  gap: 30px;
+  align-items: start;
+}
+
+/* Mengubah ke 1 Kolom untuk Layar HP/Tablet */
+@media (max-width: 992px) {
+  .checkout-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Desain Komponen Kartu */
+.card-section,
+.summary-card {
+  background: white;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  margin-bottom: 25px;
+}
+
+/* Item Keranjang (Flexbox) */
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid #f1f2f6;
+}
+
+.item-info h4 {
+  margin-bottom: 5px;
+}
+
+.item-info p {
+  color: #ff4757;
+  font-weight: bold;
+}
+
+/* Kontrol Kuantitas */
+.qty-badge {
+  background: #f1f2f6;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.btn-remove {
+  background: none;
+  border: none;
+  color: #718093;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.btn-remove:hover {
+  color: #d63031;
+}
+
+/* Form Pengiriman */
+.shipping-form {
+  margin-top: 15px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 12px;
+  border: 1px solid #c8d6e5;
+  border-radius: 4px;
+  font-size: 15px;
+}
+
+/* Ringkasan & Promo */
+.promo-box {
+  display: flex;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.promo-box input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #c8d6e5;
+  border-radius: 4px;
+}
+
+.promo-box button {
+  background: #2f3640;
+  color: white;
+  border: none;
+  padding: 0 15px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.summary-line {
+  display: flex;
+  justify-content: space-between;
+  margin: 12px 0;
+  color: #718093;
+}
+
+.summary-line.discount {
+  color: #2ed573;
+  font-weight: 500;
+}
+
+.summary-line.total {
+  font-size: 18px;
+  font-weight: bold;
+  color: #2f3640;
+}
+
+/* Tombol Bayar */
+.btn-checkout {
+  width: 100%;
+  background: #2ed573;
+  color: white;
+  border: none;
+  padding: 15px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 15px;
+  box-shadow: 0 4px 10px rgba(46, 213, 115, 0.3);
+}
+
+.btn-checkout:hover {
+  background: #26af5f;
+}
+
+.secure-text {
+  text-align: center;
+  font-size: 12px;
+  color: #718093;
+  margin-top: 15px;
+}
+
+/* --- Pilihan Card Metode Pembayaran (Responsif Grid) --- */
+.payment-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.payment-card {
+  border: 2px solid #e1e8ed;
+  border-radius: 8px;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  background: #ffffff;
+}
+
+/* Efek Hover saat kursor mendekat */
+.payment-card:hover {
+  border-color: #ff4757;
+  background-color: #fffafb;
+}
+
+/* Gaya Visual saat Metode Pembayaran Sedang Dipilih */
+.payment-card.active {
+  border-color: #ff4757;
+  background-color: #fffafb;
+  box-shadow: 0 4px 10px rgba(255, 71, 87, 0.1);
+}
+
+.payment-icon {
+  font-size: 24px;
+}
+
+.payment-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #2f3640;
+  line-height: 1.4;
+}

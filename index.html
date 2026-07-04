@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <!-- DUMMY GOOGLE ANALYTICS INTEGRATION -->
+    <script>
+      // Struktur tiruan fungsi bawaan Google (gtag.js)
+      function dummyGtag(eventName, eventData) {
+        console.log(
+          `%c[Google Analytics 4] Event: ${eventName}`,
+          "color: #ff9f43; font-weight: bold;",
+          eventData
+        );
+      }
+
+      // Otomatis merekam jejak halaman saat browser selesai memuat file HTML
+      document.addEventListener("DOMContentLoaded", () => {
+        dummyGtag("page_view", {
+          page_title: document.title,
+          page_location: window.location.href,
+          page_path: window.location.pathname,
+        });
+      });
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StreetWear - Beranda</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Navbar Global -->
+    <header class="navbar">
+      <div class="logo" onclick="window.location.href='index.html'">
+        StreetWear
+      </div>
+      <nav class="nav-links">
+        <a href="index.html" class="active">Beranda</a>
+        <a href="produk.html">Produk</a>
+        <!-- Link baru menuju semua produk -->
+      </nav>
+      <div class="cart-icon" onclick="window.location.href='checkout.html'">
+        🛒 <span id="cart-count">0</span>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="hero">
+        <h1>WELCOME TO STREETWEAR</h1>
+        <p>Temukan produk-produk terbaik dengan kualitas premium di sini.</p>
+      </section>
+
+      <h2>3 Produk Terlaris Minggu Ini 🔥</h2>
+      <div class="product-grid" id="product-list">
+        <!-- Di-render otomatis via script.js (Maksimal 3 Produk) -->
+      </div>
+
+      <!-- Tombol Tambahan untuk Masuk ke Halaman Semua Produk -->
+      <div style="text-align: center; margin-top: 40px">
+        <button
+          class="btn-add-cart-detail"
+          onclick="window.location.href='produk.html'"
+          style="width: auto; padding: 12px 35px; background: #2f3640"
+        >
+          Lihat Semua Produk Lengkap ➔
+        </button>
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+  <!-- ==========================================
+         BAGIAN FOOTER MODERN TRENDSHOP
+         ========================================== -->
+  <footer class="main-footer">
+    <div class="footer-container">
+      <!-- Kolom 1: Tentang Toko -->
+      <div class="footer-brand">
+        <h3>StreetWear</h3>
+        <p>Don't forget to pray to God</p>
+      </div>
+
+      <!-- Kolom 2: Navigasi Pintas -->
+      <div class="footer-links">
+        <h4>Tautan Pintas</h4>
+        <ul>
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="produk.html">Koleksi Produk</a></li>
+        </ul>
+      </div>
+
+      <!-- Kolom 3: Informasi Kontak -->
+      <div class="footer-contact">
+        <h4>Hubungi Kami</h4>
+        <p>📍 Jl. Bojong Soang No. 20, Bandung</p>
+        <p>📧 support@streetwear.com</p>
+        <p>📞 +62 812-3456-7890</p>
+      </div>
+    </div>
+
+    <!-- Bagian Hak Cipta bawah -->
+    <div class="footer-bottom">
+      <p>
+        &copy; 2026 StreetWear. Seluruh Hak Cipta Dilindungi. Dibuat oleh Rizal
+        Maulana.
+      </p>
+    </div>
+  </footer>
+</html>

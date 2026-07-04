@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StreetWear - Metode Pembayaran</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="logo">StreetWear Secure Checkout</div>
+    </header>
+
+    <main class="checkout-container" style="max-width: 900px; margin: 0 auto">
+      <div class="left-column">
+        <div class="card-section">
+          <h3>Pilih Satu Metode Pembayaran</h3>
+          <div class="payment-options">
+            <div
+              class="payment-card active"
+              onclick="changePaymentMethod('Virtual Account (Midtrans)', this)"
+            >
+              <div class="payment-icon">🏦</div>
+              <div class="payment-name">
+                Virtual Account (BCA, Mandiri, BNI)
+              </div>
+            </div>
+            <div
+              class="payment-card"
+              onclick="changePaymentMethod('E-Wallet (Xendit)', this)"
+            >
+              <div class="payment-icon">📱</div>
+              <div class="payment-name">E-Wallet (Dana, OVO, ShopeePay)</div>
+            </div>
+            <div
+              class="payment-card"
+              onclick="changePaymentMethod('Indomaret / Alfamart', this)"
+            >
+              <div class="payment-icon">🏪</div>
+              <div class="payment-name">Gerai Retail Tunai</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="right-column">
+        <div class="summary-card">
+          <h3>Finalisasi Tagihan</h3>
+          <div class="summary-line">
+            <span>Penerima:</span><strong id="pay-buyer-name">-</strong>
+          </div>
+          <div class="summary-line">
+            <span>Metode:</span
+            ><span id="pay-method-chosen">Virtual Account (Midtrans)</span>
+          </div>
+          <hr />
+          <div class="summary-line total">
+            <span style="font-size: 16px">Total Bayar:</span
+            ><span id="pay-final-total">Rp 0</span>
+          </div>
+          <button class="btn-checkout" onclick="executePaymentSim()">
+            Konfirmasi & Bayar Sekarang
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+    <script src="bayar.js"></script>
+  </body>
+  <!-- ==========================================
+         BAGIAN FOOTER MODERN TRENDSHOP
+         ========================================== -->
+  <footer class="main-footer">
+    <div class="footer-container">
+      <!-- Kolom 1: Tentang Toko -->
+      <div class="footer-brand">
+        <h3>StreetWear</h3>
+        <p>Don't forget to pray to God</p>
+      </div>
+
+      <!-- Kolom 2: Navigasi Pintas -->
+      <div class="footer-links">
+        <h4>Tautan Pintas</h4>
+        <ul>
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="produk.html">Koleksi Produk</a></li>
+        </ul>
+      </div>
+
+      <!-- Kolom 3: Informasi Kontak -->
+      <div class="footer-contact">
+        <h4>Hubungi Kami</h4>
+        <p>📍 Jl. Bojong Soang No. 20, Bandung</p>
+        <p>📧 support@streetwear.com</p>
+        <p>📞 +62 812-3456-7890</p>
+      </div>
+    </div>
+
+    <!-- Bagian Hak Cipta bawah -->
+    <div class="footer-bottom">
+      <p>
+        &copy; 2026 StreetWear. Seluruh Hak Cipta Dilindungi. Dibuat oleh Rizal
+        Maulana.
+      </p>
+    </div>
+  </footer>
+</html>

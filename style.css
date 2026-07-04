@@ -1,0 +1,941 @@
+/* --- Base & Utilitas Global --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+body {
+  background-color: #f5f6fa;
+  color: #2f3640;
+}
+.hidden {
+  display: none !important;
+}
+
+/* --- Navbar --- */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 5%;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.logo {
+  font-weight: bold;
+  font-size: 24px;
+  cursor: pointer;
+  color: #ff4757;
+}
+.cart-icon {
+  cursor: pointer;
+  font-weight: bold;
+  background: #eee;
+  padding: 8px 15px;
+  border-radius: 20px;
+}
+
+/* --- View 1: Beranda --- */
+.hero {
+  background: linear-gradient(135deg, #e0eafc, #cfdef3);
+  padding: 50px 5%;
+  text-align: center;
+}
+.container {
+  padding: 40px 5%;
+}
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+.product-card {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+  text-align: center;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.product-card:hover {
+  transform: translateY(-5px);
+}
+img.product-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover; /* Melindungi gambar agar tidak gepeng */
+  object-position: center;
+  border-radius: 10px;
+  transition: opacity 0.2s;
+  display: block;
+}
+.btn-view-detail {
+  background: #ff4757;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+  width: 100%;
+  font-weight: 600;
+}
+
+/* --- View 2: Detail Produk (CSS Grid 2 Kolom) --- */
+.detail-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  padding: 40px 5%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.main-image-placeholder {
+  width: 100%;
+  height: 400px;
+  background: #e1e8ed;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 18px;
+}
+.badge-promo {
+  background: #ffeaa7;
+  color: #d63031;
+  padding: 5px 10px;
+  font-weight: bold;
+  border-radius: 4px;
+  font-size: 12px;
+}
+.product-price {
+  font-size: 26px;
+  color: #ff4757;
+  font-weight: bold;
+  margin: 15px 0;
+}
+.product-desc {
+  color: #718093;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+.size-picker {
+  display: flex;
+  gap: 10px;
+  margin: 10px 0 20px;
+}
+.size-btn {
+  padding: 8px 16px;
+  border: 1px solid #ccc;
+  background: white;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.size-btn.active {
+  background: #2f3640;
+  color: white;
+  border-color: #2f3640;
+}
+.purchase-section {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+.quantity-control {
+  display: flex;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.quantity-control button {
+  padding: 10px 15px;
+  background: #eee;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+#detail-qty-value {
+  padding: 10px 15px;
+  font-weight: bold;
+  background: white;
+}
+.btn-add-cart-detail {
+  flex: 1;
+  background: #2ed573;
+  color: white;
+  border: none;
+  padding: 12px;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.stock-warning {
+  color: #d63031;
+  font-size: 13px;
+  font-style: italic;
+}
+
+/* --- View 3: Checkout (CSS Grid 2 Kolom) --- */
+.checkout-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 30px;
+  padding: 40px 5%;
+}
+.card-section,
+.summary-card {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+}
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 12px;
+}
+.form-group input,
+.form-group textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.payment-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+  margin-top: 12px;
+}
+.payment-card {
+  border: 2px solid #eee;
+  padding: 12px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+.payment-card.active {
+  border-color: #ff4757;
+  background: #fffafb;
+}
+.summary-line {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+.summary-line.total {
+  font-weight: bold;
+  font-size: 20px;
+  color: #ff4757;
+}
+.btn-checkout {
+  width: 100%;
+  background: #2ed573;
+  color: white;
+  border: none;
+  padding: 14px;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+.secure-text {
+  text-align: center;
+  font-size: 12px;
+  color: #718093;
+  margin-top: 10px;
+}
+
+/* --- Responsive Breakpoint (Tablet & Mobile) --- */
+@media (max-width: 850px) {
+  .detail-container,
+  .checkout-container {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+}
+
+/* ==========================================================================
+   DESAIN HALAMAN KATALOG & DETAIL PRODUK MODERN (TRENDSHOP 2026)
+   ========================================================================== */
+
+/* --- Navigasi Kecil (Breadcrumbs) --- */
+.breadcrumbs {
+  font-size: 14px;
+  color: #8a8d93;
+  margin-bottom: 25px;
+  padding: 0 10px;
+}
+.breadcrumbs span {
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.breadcrumbs span:hover {
+  color: #ff4757;
+}
+.breadcrumbs .current {
+  color: #2f3640;
+  font-weight: 600;
+  cursor: default;
+}
+
+/* --- Katalog Header --- */
+.catalog-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.catalog-header h2 {
+  font-size: 28px;
+  color: #2f3640;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.catalog-header p {
+  color: #718093;
+  font-size: 16px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* --- Pembaruan Kartu Produk (Katalog Grid) --- */
+.product-card {
+  background: #ffffff;
+  border: 1px solid #e1e8ed;
+  padding: 18px;
+  border-radius: 14px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.01);
+}
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 20px rgba(47, 54, 64, 0.08);
+  border-color: #dcdde1;
+}
+.product-card h3 {
+  font-size: 17px;
+  color: #2f3640;
+  margin: 12px 0 6px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.product-card p {
+  font-size: 16px;
+  font-weight: 700;
+  color: #ff4757;
+  margin-bottom: 15px;
+}
+.product-img {
+  width: 100%;
+  height: 180px;
+  background: linear-gradient(135deg, #f5f6fa, #dcdde1);
+  border-radius: 10px;
+  transition: opacity 0.2s;
+}
+.product-card:hover .product-img {
+  opacity: 0.9;
+}
+
+/* --- Tombol Lihat Detail di Kartu --- */
+.btn-view-detail {
+  background: #f5f6fa;
+  color: #2f3640;
+  border: 1px solid #dcdde1;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+.product-card:hover .btn-view-detail {
+  background: #ff4757;
+  color: #ffffff;
+  border-color: #ff4757;
+}
+
+/* --- Area Detail Produk Premium --- */
+.detail-wrapper {
+  background: transparent;
+  padding: 10px 0;
+}
+.detail-container {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 45px;
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.02);
+  border: 1px solid #e1e8ed;
+}
+
+/* --- Kerangka Gambar Detail --- */
+.main-image-placeholder {
+  width: 100%;
+  height: 450px;
+  background: linear-gradient(135deg, #f5f6fa, #e1e8ed);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  border: 1px solid #eee;
+}
+.image-icon {
+  font-size: 48px;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.05));
+}
+#img-placeholder-text {
+  font-weight: 600;
+  color: #718093;
+  font-size: 16px;
+  padding: 0 20px;
+  text-align: center;
+}
+
+/* --- Komponen Info Detail --- */
+.tag-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+.badge-promo {
+  background: #fff5f5;
+  color: #ff4757;
+  padding: 6px 14px;
+  font-weight: 700;
+  border-radius: 6px;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+}
+.badge-stock {
+  background: #ebfbee;
+  color: #2ed573;
+  padding: 6px 14px;
+  font-weight: 700;
+  border-radius: 6px;
+  font-size: 12px;
+}
+.detail-info h1 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #2f3640;
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+
+/* Rating & Harga */
+.rating-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.stars {
+  color: #ffa502;
+  font-size: 16px;
+}
+.review-count {
+  color: #a4b0be;
+  font-size: 14px;
+}
+.product-price {
+  font-size: 34px;
+  color: #ff4757;
+  font-weight: 800;
+  margin: 0;
+}
+.price-tag-container {
+  margin-bottom: 20px;
+  padding-bottom: 5px;
+}
+.product-desc {
+  color: #57606f;
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 25px;
+}
+.divider-line {
+  height: 1px;
+  background: #eceff1;
+  width: 100%;
+  margin: 25px 0;
+}
+
+/* Pemilih Ukuran */
+.options-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #2f3640;
+  margin-bottom: 10px;
+}
+.size-picker {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+.size-btn {
+  padding: 10px 20px;
+  border: 1px solid #dcdde1;
+  background: #ffffff;
+  cursor: pointer;
+  border-radius: 8px;
+  font-weight: 600;
+  color: #57606f;
+  transition: all 0.2s;
+}
+.size-btn:hover {
+  border-color: #2f3640;
+  color: #2f3640;
+}
+.size-btn.active {
+  background: #2f3640;
+  color: #ffffff;
+  border-color: #2f3640;
+  box-shadow: 0 4px 10px rgba(47, 54, 64, 0.2);
+}
+
+/* --- Panel Kuantitas & Tombol Beli Utama --- */
+.purchase-action-panel {
+  display: flex;
+  gap: 20px;
+  align-items: flex-end;
+  margin-bottom: 30px;
+}
+.quantity-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.quantity-wrapper label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #718093;
+}
+.quantity-control {
+  display: flex;
+  border: 1px solid #dcdde1;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #f5f6fa;
+  height: 48px;
+  align-items: center;
+}
+.quantity-control button {
+  width: 40px;
+  height: 100%;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+  color: #2f3640;
+  transition: background 0.2s;
+}
+.quantity-control button:hover {
+  background: #e1e8ed;
+}
+#qty-val {
+  width: 45px;
+  text-align: center;
+  font-weight: 700;
+  color: #2f3640;
+  font-size: 16px;
+}
+
+/* Tombol Tambah Keranjang */
+.btn-add-cart-detail {
+  flex: 1;
+  background: linear-gradient(135deg, #2ed573, #26af5f);
+  color: white;
+  border: none;
+  height: 48px;
+  font-weight: 700;
+  font-size: 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 12px rgba(46, 213, 115, 0.3);
+}
+.btn-add-cart-detail:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(46, 213, 115, 0.4);
+  opacity: 0.95;
+}
+.btn-add-cart-detail:active {
+  transform: translateY(0);
+}
+
+/* Lencana Kepercayaan Toko */
+.trust-badge {
+  display: flex;
+  justify-content: space-between;
+  background: #f8f9fa;
+  padding: 12px 18px;
+  border-radius: 10px;
+  border: 1px dashed #dcdde1;
+}
+.trust-badge span {
+  font-size: 13px;
+  color: #718093;
+  font-weight: 600;
+}
+
+/* --- Responsive Layout --- */
+@media (max-width: 900px) {
+  .detail-container {
+    grid-template-columns: 1fr;
+    padding: 25px;
+    gap: 30px;
+  }
+  .main-image-placeholder {
+    height: 320px;
+  }
+  .detail-info h1 {
+    font-size: 26px;
+  }
+  .purchase-action-panel {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+  }
+  .quantity-control {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .quantity-control button {
+    width: 60px;
+  }
+}
+
+/* ==========================================================================
+   PEMBARUAN NAVIGASI PREMIUM (SENADA DENGAN JUDUL TOKO)
+   ========================================================================== */
+
+/* 1. Styling Judul Toko / Logo Utama (Sebagai acuan) */
+.logo {
+  font-weight: 800;
+  font-size: 26px;
+  cursor: pointer;
+  color: #ff4757; /* Warna khas utama */
+  letter-spacing: -0.5px;
+}
+
+/* 2. Wadah Menu Navigasi */
+.nav-links {
+  display: flex;
+  gap: 35px; /* Memberi ruang antar menu agar tidak berdempetan */
+  align-items: center;
+}
+
+/* 3. Menyamakan Tampilan Beranda & Produk dengan Judul Toko */
+.nav-links a {
+  text-decoration: none;
+  font-weight: 700; /* Ketebalan huruf tebal senada logo */
+  font-size: 18px; /* Ukuran proporsional (sedikit di bawah logo agar logo tetap dominan) */
+  color: #2f3640; /* Warna netral saat tidak aktif */
+  letter-spacing: -0.3px;
+  padding: 6px 0;
+  position: relative; /* Pemicu posisi efek garis bawah */
+  transition: color 0.2s ease;
+}
+
+/* 4. Efek Visual Saat Menu Aktif / Disentuh Kursor (Berubah Warna Seperti Logo) */
+.nav-links a:hover,
+.nav-links a.active {
+  color: #ff4757; /* Berubah menjadi merah coral persis seperti logo */
+}
+
+/* 5. Animasi Garis Bawah Modern yang Elegan */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background-color: #ff4757; /* Warna garis menyamakan logo */
+  border-radius: 2px;
+  transition: width 0.25s ease; /* Kecepatan animasi garis bergeser */
+}
+
+/* Garis bawah otomatis memanjang penuh saat menu aktif atau di-hover */
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
+
+/* --- Desain Bar Filter & Pencarian --- */
+.filter-wrapper {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  background: #ffffff;
+  padding: 16px 20px;
+  border-radius: 14px;
+  margin-bottom: 30px;
+  border: 1px solid #e1e8ed;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.01);
+}
+#search-input {
+  flex: 1;
+  padding: 12px 16px;
+  border: 1px solid #dcdde1;
+  border-radius: 8px;
+  font-size: 15px;
+  outline: none;
+  transition: border 0.2s;
+}
+#search-input:focus {
+  border-color: #ff4757;
+}
+.filter-select-group {
+  display: flex;
+  gap: 12px;
+}
+.filter-select-group select {
+  padding: 0 15px;
+  border: 1px solid #dcdde1;
+  border-radius: 8px;
+  background: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  color: #2f3640;
+  cursor: pointer;
+  outline: none;
+}
+.filter-select-group select:focus {
+  border-color: #ff4757;
+}
+
+@media (max-width: 768px) {
+  .filter-wrapper {
+    flex-direction: column;
+  }
+  .filter-select-group {
+    width: 100%;
+  }
+  .filter-select-group select {
+    flex: 1;
+    height: 45px;
+  }
+}
+
+/* ==========================================================================
+   DESAIN FOOTER MODERN & RESPONSIF (TRENDSHOP 2026)
+   ========================================================================== */
+.main-footer {
+  background-color: #2f3640; /* Warna gelap navy agar elegan */
+  color: #f5f6fa;
+  padding: 60px 0 20px 0;
+  margin-top: 80px; /* Jarak aman dari konten di atasnya */
+  border-top: 4px solid #ff4757; /* Aksen garis merah tipis senada logo */
+}
+
+.footer-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr; /* Membagi menjadi 3 kolom proporsional */
+  gap: 50px;
+  padding: 0 20px;
+}
+
+/* Identitas Brand */
+.footer-brand h3 {
+  color: #ff4757; /* Warna logo */
+  font-size: 24px;
+  font-weight: 800;
+  margin-bottom: 15px;
+  letter-spacing: -0.5px;
+}
+.footer-brand p {
+  color: #a4b0be;
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+/* Judul Kecil Kolom */
+.footer-links h4,
+.footer-contact h4 {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+/* Link Navigasi */
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.footer-links ul li {
+  margin-bottom: 12px;
+}
+.footer-links ul li a {
+  color: #a4b0be;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s ease;
+}
+.footer-links ul li a:hover {
+  color: #ff4757; /* Efek hover menyala merah */
+  padding-left: 4px; /* Efek geser kecil yang interaktif */
+}
+
+/* Detail Kontak */
+.footer-contact p {
+  color: #a4b0be;
+  margin-bottom: 12px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Hak Cipta di Bagian Paling Bawah */
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid #3f444e; /* Garis pembatas tipis */
+  margin-top: 50px;
+  padding-top: 20px;
+  font-size: 13px;
+  color: #747d8c;
+}
+
+/* RESPONSIVE LAYOUT: Otomatis vertikal jika layar kekecilan (HP) */
+@media (max-width: 768px) {
+  .footer-container {
+    grid-template-columns: 1fr; /* Menjadi 1 baris ke bawah */
+    gap: 35px;
+    text-align: center;
+  }
+  .footer-contact p {
+    justify-content: center;
+  }
+  .footer-links ul li a:hover {
+    padding-left: 0; /* Matikan efek geser di mobile agar tidak aneh */
+  }
+}
+
+/* ==========================================================================
+   DESAIN POP-UP NOTIFIKASI KUSTOM MODERN (TRENDSHOP)
+   ========================================================================== */
+.custom-alert-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(47, 54, 64, 0.4); /* Efek menggelapkan latar belakang */
+  backdrop-filter: blur(5px); /* Efek kaca buram premium */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000; /* Memastikan berada di lapisan paling atas */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+/* Aktifkan pop-up */
+.custom-alert-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Kotak Pesan */
+.custom-alert-box {
+  background: #ffffff;
+  padding: 35px 30px;
+  border-radius: 18px;
+  width: 90%;
+  max-width: 380px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 15px 35px rgba(47, 54, 64, 0.15);
+
+  /* Animasi mengecil di awal */
+  transform: scale(0.7);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Efek membal mendarat */
+}
+
+/* Kotak membesar membal saat aktif */
+.custom-alert-overlay.active .custom-alert-box {
+  transform: scale(1);
+}
+
+/* Dekorasi Komponen Pop-up */
+.custom-alert-icon {
+  font-size: 55px;
+  margin-bottom: 15px;
+  display: inline-block;
+  animation: pulseIcon 1.5s infinite alternate;
+}
+.custom-alert-box h3 {
+  font-size: 22px;
+  color: #2f3640;
+  font-weight: 800;
+  margin-bottom: 10px;
+  letter-spacing: -0.5px;
+}
+.custom-alert-box p {
+  font-size: 15px;
+  color: #718093;
+  line-height: 1.5;
+  margin-bottom: 25px;
+}
+
+/* Tombol Aksi Pop-up */
+.custom-alert-btn {
+  background: linear-gradient(135deg, #ff4757, #ff6b81);
+  color: white;
+  border: none;
+  padding: 14px 0;
+  width: 100%;
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 15px rgba(255, 71, 87, 0.35);
+}
+.custom-alert-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 71, 87, 0.45);
+}
+.custom-alert-btn:active {
+  transform: translateY(0);
+}
+
+/* Animasi Icon Bergerak Ringan */
+@keyframes pulseIcon {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}

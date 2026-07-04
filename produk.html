@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <!-- DUMMY GOOGLE ANALYTICS INTEGRATION -->
+    <script>
+      // Struktur tiruan fungsi bawaan Google (gtag.js)
+      function dummyGtag(eventName, eventData) {
+        console.log(
+          `%c[Google Analytics 4] Event: ${eventName}`,
+          "color: #ff9f43; font-weight: bold;",
+          eventData
+        );
+      }
+
+      // Otomatis merekam jejak halaman saat browser selesai memuat file HTML
+      document.addEventListener("DOMContentLoaded", () => {
+        dummyGtag("page_view", {
+          page_title: document.title,
+          page_location: window.location.href,
+          page_path: window.location.pathname,
+        });
+      });
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StreetWear - Koleksi Produk</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Navbar Global -->
+    <header class="navbar">
+      <div class="logo" onclick="window.location.href='index.html'">
+        StreetWear
+      </div>
+      <nav class="nav-links">
+        <a href="index.html">Beranda</a>
+        <a href="produk.html" class="active">Produk</a>
+      </nav>
+      <div class="cart-icon" onclick="window.location.href='checkout.html'">
+        🛒 <span id="cart-count">0</span>
+      </div>
+    </header>
+
+    <main class="container">
+      <!-- TAMPILAN A: KATALOG SEMUA PRODUK -->
+      <!-- TAMPILAN A: KATALOG SEMUA PRODUK -->
+      <div id="products-catalog-view" class="hidden">
+        <div class="catalog-header">
+          <h2>Semua Koleksi Produk</h2>
+          <p>
+            Eksplorasi gaya terbaik dengan 20 pilihan material premium untuk
+            aktivitas Anda.
+          </p>
+        </div>
+
+        <!-- PANEL SEARCH & FILTER BARU -->
+        <div class="filter-wrapper">
+          <input
+            type="text"
+            id="search-input"
+            placeholder="🔍 Cari nama produk di sini..."
+            oninput="handleFilterChange()"
+          />
+
+          <div class="filter-select-group">
+            <!-- Tambahan aria-label dan title untuk menghilangkan warning editor -->
+            <select
+              id="category-filter"
+              onchange="handleFilterChange()"
+              aria-label="Filter Berdasarkan Kategori"
+              title="Filter Kategori"
+            >
+              <option value="semua">📂 Semua Kategori</option>
+              <option value="pakaian">👕 Pakaian</option>
+              <option value="sepatu">👟 Sepatu</option>
+              <option value="tas">🎒 Tas</option>
+              <option value="aksesoris">🕶️ Aksesoris</option>
+            </select>
+
+            <select
+              id="price-sort"
+              onchange="handleFilterChange()"
+              aria-label="Urutkan Berdasarkan Harga"
+              title="Urutan Harga"
+            >
+              <option value="default">↕️ Urutkan Harga</option>
+              <option value="murah">Harga: Rendah ke Tinggi</option>
+              <option value="mahal">Harga: Tinggi ke Rendah</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="product-grid" id="all-products-list">
+          <!-- Diisi otomatis secara dinamis oleh product.js -->
+        </div>
+      </div>
+
+      <!-- TAMPILAN B: DETAIL PRODUK -->
+      <div class="detail-wrapper hidden" id="product-detail-view">
+        <!-- Navigasi Jalan Pintas Kecil (Breadcrumbs) -->
+        <div class="breadcrumbs">
+          <span onclick="window.location.href='index.html'">Beranda</span> ➔
+          <span onclick="window.location.href='produk.html'">Semua Produk</span>
+          ➔
+          <span class="current">Detail</span>
+        </div>
+
+        <div class="detail-container">
+          <!-- Sisi Kiri: Visual Eksklusif -->
+          <section class="detail-gallery">
+            <div class="main-image-placeholder">
+              <div class="image-icon">🛍️</div>
+              <span id="img-placeholder-text">Nama Produk</span>
+            </div>
+          </section>
+
+          <!-- Sisi Kanan: Informasi Komprehensif -->
+          <section class="detail-info">
+            <div class="tag-row">
+              <span class="badge-promo">PRODUK PILIHAN 🔥</span>
+              <span class="badge-stock">Tersedia</span>
+            </div>
+
+            <h1 id="detail-title">-</h1>
+
+            <div class="rating-box">
+              <span class="stars">⭐⭐⭐⭐★</span>
+              <span class="review-count">(4.9 dari 120 Ulasan Pembeli)</span>
+            </div>
+
+            <div class="price-tag-container">
+              <p class="product-price" id="detail-price">Rp 0</p>
+            </div>
+
+            <p class="product-desc" id="detail-desc">-</p>
+
+            <div class="divider-line"></div>
+
+            <!-- Pilihan Spek Tambahan -->
+            <!-- Cari bagian ini dan sesuaikan ukurannya -->
+            <div class="options-group">
+              <label>Pilih Tipe:</label>
+              <div class="size-picker">
+                <button class="size-btn" onclick="selectSize(this)">
+                  STANDAR
+                </button>
+                <button class="size-btn active" onclick="selectSize(this)">
+                  PREMIUM
+                </button>
+              </div>
+            </div>
+
+            <!-- Panel Aksi Pembelian -->
+            <div class="purchase-action-panel">
+              <div class="quantity-wrapper">
+                <label>Jumlah</label>
+                <div class="quantity-control">
+                  <button onclick="adjustQty(-1)">-</button>
+                  <span id="qty-val">1</span>
+                  <button onclick="adjustQty(1)">+</button>
+                </div>
+              </div>
+
+              <button class="btn-add-cart-detail" onclick="handleAddToCart()">
+                Tambah ke Keranjang — <span id="detail-total-price">Rp 0</span>
+              </button>
+            </div>
+
+            <div class="trust-badge">
+              <span>🛡️ 100% Produk Original</span>
+              <span>🔄 7 Hari Garansi Pengembalian</span>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+    <script src="product.js"></script>
+  </body>
+  <!-- ==========================================
+         BAGIAN FOOTER MODERN TRENDSHOP
+         ========================================== -->
+  <footer class="main-footer">
+    <div class="footer-container">
+      <!-- Kolom 1: Tentang Toko -->
+      <div class="footer-brand">
+        <h3>StreetWear</h3>
+        <p>Don't forget to pray to God</p>
+      </div>
+
+      <!-- Kolom 2: Navigasi Pintas -->
+      <div class="footer-links">
+        <h4>Tautan Pintas</h4>
+        <ul>
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="produk.html">Koleksi Produk</a></li>
+        </ul>
+      </div>
+
+      <!-- Kolom 3: Informasi Kontak -->
+      <div class="footer-contact">
+        <h4>Hubungi Kami</h4>
+        <p>📍 Jl. Bojong Soang No. 20, Bandung</p>
+        <p>📧 support@streetwear.com</p>
+        <p>📞 +62 812-3456-7890</p>
+      </div>
+    </div>
+
+    <!-- Bagian Hak Cipta bawah -->
+    <div class="footer-bottom">
+      <p>
+        &copy; 2026 StreetWear. Seluruh Hak Cipta Dilindungi. Dibuat oleh Rizal
+        Maulana.
+      </p>
+    </div>
+  </footer>
+</html>
