@@ -9,7 +9,7 @@ const products = [
     name: "Sepatu Sneakers",
     price: 450000,
     category: "sepatu",
-    image: "img/sneakers.jpg",
+    image: "sneakers.jpg",
     desc: "Sneakers kasual bergaya klasik dengan insole Ortholite yang empuk.",
   },
   {
@@ -17,7 +17,7 @@ const products = [
     name: "Kemeja Flanel",
     price: 250000,
     category: "pakaian",
-    image: "img/kamejaflanel.jpeg",
+    image: "kamejaflanel.jpeg",
     desc: "Kemeja flanel lengan panjang berbahan 100% katun wol pilihan.",
   },
   {
@@ -25,7 +25,7 @@ const products = [
     name: "Tas Ransel Minimalis",
     price: 350000,
     category: "tas",
-    image: "img/ransel.webp",
+    image: "ransel.webp",
     desc: "Tas punggung anti-air (waterproof) dengan kompartemen laptop 15.6 inci.",
   },
   {
@@ -33,7 +33,7 @@ const products = [
     name: "Jaket Bomber",
     price: 520000,
     category: "pakaian",
-    image: "img/jaket.jpg",
+    image: "jaket.jpg",
     desc: "Jaket bomber tangguh tahan angin dengan lapisan dalam dacron hangat.",
   },
   {
@@ -41,7 +41,7 @@ const products = [
     name: "Celana Chino Slim-Fit Stretch",
     price: 299000,
     category: "pakaian",
-    image: "img/chino.jpeg",
+    image: "chino.jpeg",
     desc: "Celana panjang chino berbahan katun twill stretch yang fleksibel.",
   },
   {
@@ -49,7 +49,7 @@ const products = [
     name: "Kaos Polos Cotton Combed 30s",
     price: 95000,
     category: "pakaian",
-    image: "img/kaospolos.jpg",
+    image: "kaospolos.jpg",
     desc: "Kaos polos ultra-lembut, menyerap keringat dengan pilihan warna solid.",
   },
   {
@@ -57,7 +57,7 @@ const products = [
     name: "Sepatu Pantofel Kulit Oxford",
     price: 650000,
     category: "sepatu",
-    image: "img/pantofel.jpg",
+    image: "pantofel.jpg",
     desc: "Sepatu formal pria berbahan kulit sapi asli dengan finishing kilap elegan.",
   },
   {
@@ -65,7 +65,7 @@ const products = [
     name: "Dompet Kulit Sapi Minimalis",
     price: 180000,
     category: "aksesoris",
-    image: "img/dompet.jpg",
+    image: "dompet.jpg",
     desc: "Dompet kartu ramping berteknologi RFID blocking anti-pencurian data.",
   },
   {
@@ -73,7 +73,7 @@ const products = [
     name: "Jam Tangan Chronograph Sporty",
     price: 850000,
     category: "aksesoris",
-    image: "img/jamtangan.jpg",
+    image: "jamtangan.jpg",
     desc: "Jam tangan pria water-resistant 50m dengan strap stainless steel.",
   },
   {
@@ -81,7 +81,7 @@ const products = [
     name: "Tas Selempang Canvas Retro",
     price: 210000,
     category: "tas",
-    image: "img/tasslempang.jpg",
+    image: "tasslempang.jpg",
     desc: "Sling bag kasual berbahan canvas tebal untuk membawa gadget harian.",
   },
   {
@@ -89,7 +89,7 @@ const products = [
     name: "Hoodie Oversize Fleece",
     price: 320000,
     category: "pakaian",
-    image: "img/hoodie.webp",
+    image: "hoodie.webp",
     desc: "Jaket hoodie tebal dengan tekstur dalam super lembut dan hangat.",
   },
   {
@@ -97,7 +97,7 @@ const products = [
     name: "Kacamata Hitam Anti-UV Polaris",
     price: 150000,
     category: "aksesoris",
-    image: "img/kacamata.jpg",
+    image: "kacamata.jpg",
     desc: "Kacamata pelindung silau matahari dengan lensa polarized premium.",
   },
   {
@@ -105,7 +105,7 @@ const products = [
     name: "Ikat Pinggang Kulit Otomatis",
     price: 125000,
     category: "aksesoris",
-    image: "img/sabug.webp",
+    image: "sabug.webp",
     desc: "Sabuk pria dengan buckle sistem rel otomatis tanpa lubang, praktis.",
   },
   {
@@ -113,7 +113,7 @@ const products = [
     name: "Sandal Gunung Ergo-Grip",
     price: 195000,
     category: "sepatu",
-    image: "img/sendal.jpg",
+    image: "sendal.jpg",
     desc: "Sandal outdoor dengan outsole karet tebal anti-slip di medan basah.",
   },
   {
@@ -121,7 +121,7 @@ const products = [
     name: "Topi Baseball Klasik Canvas",
     price: 85000,
     category: "aksesoris",
-    image: "img/topi.jpg",
+    image: "topi.jpg",
     desc: "Topi pelindung panas dengan strap kulit yang bisa diatur ukurannya.",
   },
   {
@@ -129,7 +129,7 @@ const products = [
     name: "Jaket Denim Vintage Wash",
     price: 480000,
     category: "pakaian",
-    image: "img/jaketdenim.jpg",
+    image: "jaketdenim.jpg",
     desc: "Jaket jeans klasik dengan efek pencucian estetik pudar yang trendi.",
   },
   {
@@ -137,7 +137,7 @@ const products = [
     name: "Tas Jinjing Tote Bag Canvas",
     price: 175000,
     category: "tas",
-    image: "img/tasjinjing.jpg",
+    image: "tasjinjing.jpg",
     desc: "Tote bag unisex dengan kancing ritsleting utama, cocok untuk kuliah.",
   },
   {
@@ -145,7 +145,7 @@ const products = [
     name: "Kaos Kaki Bambu Breathable",
     price: 45000,
     category: "aksesoris",
-    image: "img/kaoskaki.jpg",
+    image: "kaoskaki.jpg",
     desc: "Kaos kaki serat bambu anti-bakteri, mencegah bau kaki seharian.",
   },
   {
@@ -153,7 +153,7 @@ const products = [
     name: "Sepatu Lari Ultra-Light Foam",
     price: 720000,
     category: "sepatu",
-    image: "img/sepatu.jpg",
+    image: "sepatu.jpg",
     desc: "Sepatu running berbobot ringan dengan bantalan foam peredam benturan.",
   },
   {
@@ -161,7 +161,7 @@ const products = [
     name: "Celana Pendek Cargo Santai",
     price: 185000,
     category: "pakaian",
-    image: "img/celana.jpg",
+    image: "celana.jpg",
     desc: "Celana pendek katun ripstop dengan banyak saku fungsional.",
   },
 ];
